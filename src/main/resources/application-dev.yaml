@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: document-management-system
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/admin
+    username: admin
+    password: admin
+  flyway:
+    locations: classpath:db/user/
+    url: jdbc:postgresql://localhost:5432/admin
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
