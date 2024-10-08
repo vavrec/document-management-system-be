@@ -1,10 +1,10 @@
-package cz.vavrecka.documentmanagementsystem.user.controller;
+package cz.vavrecka.documentmanagementsystem.party.controller;
 
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
-import cz.vavrecka.documentmanagementsystem.user.model.CreateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.model.UpdateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.service.UserService;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
-import static cz.vavrecka.documentmanagementsystem.user.controller.UserController.URL;
+import static cz.vavrecka.documentmanagementsystem.party.controller.UserController.URL;
 
 @RestController
 @RequestMapping(URL)

@@ -1,7 +1,7 @@
-package cz.vavrecka.documentmanagementsystem.user.controller;
+package cz.vavrecka.documentmanagementsystem.party.controller;
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
-import cz.vavrecka.documentmanagementsystem.user.service.UserService;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import static cz.vavrecka.documentmanagementsystem.user.controller.UsersController.URL;
+import static cz.vavrecka.documentmanagementsystem.party.controller.UsersController.URL;
 
 @RestController
 @RequestMapping(URL)

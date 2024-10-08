@@ -1,8 +1,8 @@
-package cz.vavrecka.documentmanagementsystem.user.mapper;
+package cz.vavrecka.documentmanagementsystem.party.mapper;
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
-import cz.vavrecka.documentmanagementsystem.user.model.CreateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.model.UpdateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

@@ -1,4 +1,4 @@
-package cz.vavrecka.documentmanagementsystem.user.exception;
+package cz.vavrecka.documentmanagementsystem.party.exception;
 
 public class UserNotFound extends RuntimeException {
 

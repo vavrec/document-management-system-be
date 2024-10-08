@@ -1,13 +1,13 @@
-package cz.vavrecka.documentmanagementsystem.user.service.impl;
+package cz.vavrecka.documentmanagementsystem.party.service.impl;
 
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
-import cz.vavrecka.documentmanagementsystem.user.exception.UserNotFound;
-import cz.vavrecka.documentmanagementsystem.user.mapper.UserMapper;
-import cz.vavrecka.documentmanagementsystem.user.model.CreateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.model.UpdateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.repository.UserRepository;
-import cz.vavrecka.documentmanagementsystem.user.service.UserService;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.exception.UserNotFound;
+import cz.vavrecka.documentmanagementsystem.party.mapper.UserMapper;
+import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.repository.UserRepository;
+import cz.vavrecka.documentmanagementsystem.party.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -22,6 +22,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
+
     private UserRepository userRepository;
 
     private UserMapper createUserDTOMapper;

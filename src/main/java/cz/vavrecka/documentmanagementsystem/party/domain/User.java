@@ -1,4 +1,4 @@
-package cz.vavrecka.documentmanagementsystem.user.domain;
+package cz.vavrecka.documentmanagementsystem.party.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;

@@ -1,6 +1,6 @@
-package cz.vavrecka.documentmanagementsystem.user.repository;
+package cz.vavrecka.documentmanagementsystem.party.repository;
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;

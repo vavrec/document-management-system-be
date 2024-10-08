@@ -1,11 +1,10 @@
-package cz.vavrecka.documentmanagementsystem.user.service;
+package cz.vavrecka.documentmanagementsystem.party.service;
 
-import cz.vavrecka.documentmanagementsystem.user.domain.User;
-import cz.vavrecka.documentmanagementsystem.user.model.CreateUserDTO;
-import cz.vavrecka.documentmanagementsystem.user.model.UpdateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
+import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
@@ -18,7 +17,7 @@ public interface UserService {
 
     Mono<Page<User>> getPersonsPaged(int page, int size);
 
-    Mono<User> createUser(CreateUserDTO newUser);
+    Mono<User> createUser(@Valid CreateUserDTO newUser);
 
     Mono<User> updateUser(@Valid UpdateUserDTO updatedUser);
 }
