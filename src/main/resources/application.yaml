@@ -10,3 +10,6 @@ spring:
     url: ${FLYWAY_DATABASE_URL}
     user: ${spring.r2dbc.username}
     password: ${spring.r2dbc.password}
+  mvc:
+    problemdetails:
+      enabled: true

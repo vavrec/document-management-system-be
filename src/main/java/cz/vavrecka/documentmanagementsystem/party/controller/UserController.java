@@ -2,11 +2,13 @@ package cz.vavrecka.documentmanagementsystem.party.controller;
 
 
 import cz.vavrecka.documentmanagementsystem.party.domain.User;
+import cz.vavrecka.documentmanagementsystem.party.exception.UserNotFound;
 import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
 import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
 import cz.vavrecka.documentmanagementsystem.party.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,7 @@ import reactor.core.publisher.Mono;
 import java.util.UUID;
 
 import static cz.vavrecka.documentmanagementsystem.party.controller.UserController.URL;
+import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @RestController
 @RequestMapping(URL)
@@ -27,20 +30,27 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(path = "/{id}", produces = "application/json")
-    private Mono<ResponseEntity<User>> getUser(@PathVariable UUID id) {
+    public Mono<ResponseEntity<User>> getUser(@PathVariable UUID id) {
         return userService.findUserById(id)
                 .map(ResponseEntity::ok);
     }
 
     @PostMapping(produces = "application/json")
-    private Mono<ResponseEntity<User>> createUser(@RequestBody @Valid CreateUserDTO createUserDTO) {
+    public Mono<ResponseEntity<User>> createUser(@RequestBody @Valid CreateUserDTO createUserDTO) {
         return userService.createUser(createUserDTO)
                 .map(ResponseEntity::ok);
     }
 
     @PutMapping(produces = "application/json")
-    private Mono<ResponseEntity<User>> updateUser(@RequestBody @Valid UpdateUserDTO user) {
+    public Mono<ResponseEntity<User>> updateUser(@RequestBody @Valid UpdateUserDTO user) {
         return userService.updateUser(user)
                 .map(ResponseEntity::ok);
     }
+
+    @ExceptionHandler(UserNotFound.class)
+    public ProblemDetail userNotFoundExceptionHandler(UserNotFound userNotFound) {
+        // logger user not found
+        return ProblemDetail.forStatusAndDetail(BAD_REQUEST, "Invalid data");
+    }
+
 }
