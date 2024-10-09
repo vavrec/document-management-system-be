@@ -5,8 +5,10 @@ import cz.vavrecka.documentmanagementsystem.party.domain.User;
 import cz.vavrecka.documentmanagementsystem.party.model.CreateUserDTO;
 import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
 import cz.vavrecka.documentmanagementsystem.party.service.UserService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -17,6 +19,7 @@ import static cz.vavrecka.documentmanagementsystem.party.controller.UserControll
 @RestController
 @RequestMapping(URL)
 @AllArgsConstructor
+@Validated
 public class UserController {
 
     public static final String URL = "/api/v1/user";
@@ -30,13 +33,13 @@ public class UserController {
     }
 
     @PostMapping(produces = "application/json")
-    private Mono<ResponseEntity<User>> createUser(@RequestBody CreateUserDTO createUserDTO) {
+    private Mono<ResponseEntity<User>> createUser(@RequestBody @Valid CreateUserDTO createUserDTO) {
         return userService.createUser(createUserDTO)
                 .map(ResponseEntity::ok);
     }
 
     @PutMapping(produces = "application/json")
-    private Mono<ResponseEntity<User>> updateUser(@RequestBody UpdateUserDTO user) {
+    private Mono<ResponseEntity<User>> updateUser(@RequestBody @Valid UpdateUserDTO user) {
         return userService.updateUser(user)
                 .map(ResponseEntity::ok);
     }
