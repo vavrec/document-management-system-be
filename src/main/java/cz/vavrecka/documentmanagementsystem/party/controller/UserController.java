@@ -8,6 +8,7 @@ import cz.vavrecka.documentmanagementsystem.party.model.UpdateUserDTO;
 import cz.vavrecka.documentmanagementsystem.party.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +24,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @RequestMapping(URL)
 @AllArgsConstructor
 @Validated
+@Slf4j
 public class UserController {
 
     public static final String URL = "/api/v1/user";
@@ -49,7 +51,7 @@ public class UserController {
 
     @ExceptionHandler(UserNotFound.class)
     public ProblemDetail userNotFoundExceptionHandler(UserNotFound userNotFound) {
-        // logger user not found
+        log.info(userNotFound.getMessage());
         return ProblemDetail.forStatusAndDetail(BAD_REQUEST, "Invalid data");
     }
 
